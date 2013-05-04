@@ -26,10 +26,18 @@ test:
   password: 
   socket: /var/run/mysqld/mysqld.sock
 
+#production:
+#  adapter: postgresql
+#  database: avmmblog_production
+#  username: postgres
+#  password: password
+#  host: localhost
+#  encoding: UTF8
+
 production:
-  adapter: postgresql
-  database: avmmblog_production
-  username: postgres
-  password: password
-  host: localhost
-  encoding: UTF8
+  adapter: mysql2
+  reconnect: false
+  host: mysql://$OPENSHIFT_MYSQL_DB_HOST:$OPENSHIFT_MYSQL_DB_PORT/
+  database: avmmblog
+  username: admin1q7sdWF
+  password: Bw2xiXiERgRe
