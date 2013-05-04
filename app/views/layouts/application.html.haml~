@@ -1,0 +1,10 @@
+!!!
+%html
+  %head
+    %title Avmmblog
+    = stylesheet_link_tag    "application", "flashmo_210_style"
+    =# javascript_include_tag "avmm"
+    = csrf_meta_tags
+  %body
+    #header
+    = yield

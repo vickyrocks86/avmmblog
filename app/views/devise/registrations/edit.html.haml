@@ -1,0 +1,59 @@
+#banner
+  #account_banner
+    #wrapper
+      %p MY ACCOUNT
+      #tabs_container
+        %ul#tabs
+          = render :partial => "orders/my_account_menu"
+      #tabs_content_container
+        #tab1.tab_content{:style => "display: block;"}
+          %table#profile_table1{:cellspacing => "20"}
+            = form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :method => :put }) do |f|
+              - if params[:c].nil?
+                %tr
+                  %td.login_text3
+                    Name:
+                  %td
+                    = f.text_field :name,:class => "my_acc_fields"
+                %tr
+                  %td.login_text3
+                    Address:
+                  %td
+                    = f.text_area :address, :rows => "20", :cols => "41", :style => "width: 181px; height: 43px;", :class => "my_acc_fields"
+                %tr
+                  %td.login_text3
+                    Email:
+                  %td
+                    = f.email_field :email, :class => "my_acc_fields"
+                %tr
+                  %td.login_text3
+                    Mobile:
+                  %td
+                    = f.text_field :mobile_no, :class => "my_acc_fields"
+              - if params[:c]
+                %tr
+                  %td.login_text3
+                    Password:
+                  %td
+                    = f.password_field :password, :class => "my_acc_fields"
+                %tr
+                  %td.login_text3
+                    Passwor Confirmation:
+                  %td
+                    = f.password_field :password_confirmation, :class => "my_acc_fields"
+              %tr
+                %td.login_text3
+                  Current Password:
+                %td
+                  = f.password_field :current_password, :class => "my_acc_fields"
+              %tr
+                %td.login_text3
+                  = f.submit "SAVE", :class => "profile_button"
+         
+                  
+.clr
+#recent_text
+  %p RECENTLY VIEWED
+= render :partial => "store/recently_view"
+
+              

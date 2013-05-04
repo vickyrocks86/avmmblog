@@ -1,0 +1,5 @@
+task :demotest do
+
+puts "This is my Demo task."
+ User.create(:email => "1234@ab.com")
+end

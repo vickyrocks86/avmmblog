@@ -1,0 +1,39 @@
+
+:css
+  /* Demo styles */
+  html,body{margin:0;}
+  body{solid #000;}
+  .content{color:#777;font:12px/1.4 "helvetica neue",arial,sans-serif;width:620px;margin:20px auto;}
+  h1{font-size:12px;font-weight:normal;color:#ddd;margin:0;}
+  p{margin:0 0 20px}
+  a {color:#22BCB9;text-decoration:none;}
+  .cred{margin-top:20px;font-size:11px;}
+
+= stylesheet_link_tag("classic.css")
+
+.content{:style => "height:575px;width:800px;"}
+  = link_to "LOGOUT", destroy_user_session_url, :method => :delete
+  = form_tag User.new, :method => "post"
+    = text_field_tag "user_id", current_user.id
+    = submit_tag "save"
+  #galleria{:style => "height:575px;width:800px;"}
+    %a{:href => "https://fbcdn-sphotos-f-a.akamaihd.net/hphotos-ak-ash4/418778_406631322733186_957293475_n.jpg"}
+      %img{"data-description" => "Steam locomotives of the Chicago & North Western Railway.", "data-title" => "Locomotives Roundhouse", :src => "https://fbcdn-sphotos-f-a.akamaihd.net/hphotos-ak-ash4/418778_406631322733186_957293475_n.jpg"}
+    %a{:href => "https://fbcdn-sphotos-d-a.akamaihd.net/hphotos-ak-prn1/528031_406631259399859_839458957_n.jpg"}
+      %img{"data-description" => "Steam locomotives of the Chicago & North Western Railway.", "data-title" => "Locomotives Roundhouse", :src => "https://fbcdn-sphotos-d-a.akamaihd.net/hphotos-ak-prn1/528031_406631259399859_839458957_n.jpg"}
+    %a{:href => "https://fbcdn-sphotos-g-a.akamaihd.net/hphotos-ak-snc7/304797_406631879399797_913029351_n.jpg"}
+      %img{"data-description" => "Steam locomotives of the Chicago & North Western Railway.", "data-title" => "Locomotives Roundhouse", :src => "https://fbcdn-sphotos-g-a.akamaihd.net/hphotos-ak-snc7/304797_406631879399797_913029351_n.jpg"}
+    %a{:href => "https://fbcdn-sphotos-c-a.akamaihd.net/hphotos-ak-snc7/393913_406632296066422_461951647_n.jpg"}
+      %img{"data-description" => "Steam locomotives of the Chicago & North Western Railway.", "data-title" => "Locomotives Roundhouse", :src => "https://fbcdn-sphotos-c-a.akamaihd.net/hphotos-ak-snc7/393913_406632296066422_461951647_n.jpg"}
+    %a{:href => "https://fbcdn-sphotos-a-a.akamaihd.net/hphotos-ak-ash4/430189_406632356066416_1315477674_n.jpg"}
+      %img{"data-description" => "Steam locomotives of the Chicago & North Western Railway.", "data-title" => "Locomotives Roundhouse", :src => "https://fbcdn-sphotos-a-a.akamaihd.net/hphotos-ak-ash4/430189_406632356066416_1315477674_n.jpg"}
+    %a{:href => "https://fbcdn-sphotos-c-a.akamaihd.net/hphotos-ak-ash3/539353_406631056066546_1424069327_n.jpg"}
+      %img{"data-description" => "Steam locomotives of the Chicago & North Western Railway.", "data-title" => "Locomotives Roundhouse", :src => "https://fbcdn-sphotos-c-a.akamaihd.net/hphotos-ak-ash3/539353_406631056066546_1424069327_n.jpg"}
+
+
+:javascript
+  // Load the classic theme
+  Galleria.loadTheme('/assets/classic.js');
+
+  // Initialize Galleria
+  Galleria.run('#galleria');

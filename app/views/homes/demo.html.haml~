@@ -1,0 +1,1229 @@
+%html
+  %head
+    %form{"accept-charset" => "UTF-8", :action => "https://vpos.amxvpos.com/vpcpays", :method => "post"}
+      %input{:name => "Title", :type => "hidden", :value => "TEST"}
+      %input{:name => "user_SessionId", :type => "hidden", :value => "1234"}
+      %input{:name => "vpc_SecureHash", :type => "hidden", :value => "6cf99737e289ad3e4755a858f2f89fb5a37744f82e487be6c1990dfc15de8784"}
+      %input{:name => "vpc_SecureHashType", :type => "hidden", :value => "SHA256"}
+        / get user input
+        %table{:align => "center", :border => "0", :cellpadding => "0", :cellspacing => "0", :width => "80%"}
+          
+          %tr
+            %td{:colspan => "2"}
+              \ 
+              %hr{:width => "75%"}  
+          %tr.title
+            %td{:colspan => "2", :height => "25"}
+              %p
+                %strong  Basic 3-Party Transaction Fields
+          %tr
+            %td{:align => "right"}
+              %strong
+                %em VPC Version:
+            %td
+              %input{:maxlength => "8", :name => "vpc_Version", :size => "20", :value => "1"}/
+          %tr.shade
+            %td{:align => "right"}
+              %strong
+                %em Command Type:
+            %td
+              %input{:maxlength => "16", :name => "vpc_Command", :size => "20", :value => "pay"}/
+          %tr
+            %td{:align => "right"}
+              %strong
+                %em Merchant AccessCode:
+            %td
+              %input{:maxlength => "8", :name => "vpc_AccessCode", :size => "20", :value => "90022D39"}/
+          %tr.shade
+            %td{:align => "right"}
+              %strong
+                %em Merchant Transaction Reference:
+            %td
+              %input{:maxlength => "40", :name => "vpc_MerchTxnRef", :size => "20", :value => "txn1"}/
+          %tr
+            %td{:align => "right"}
+              %strong
+                %em MerchantID:
+            %td
+              %input{:maxlength => "16", :name => "vpc_Merchant", :size => "20", :value => "TEST9824643266"}/
+          %tr.shade
+            %td{:align => "right"}
+              %strong
+                %em Transaction OrderInfo:
+            %td
+              %input{:maxlength => "34", :name => "vpc_OrderInfo", :size => "20", :value => "test"}/
+          %tr
+            %td{:align => "right"}
+              %strong
+                %em Purchase Amount:
+            %td
+              %input{:maxlength => "10", :name => "vpc_Amount", :value => "100"}/
+          %tr.shade
+            %td{:align => "right"}
+              %strong
+                %em Receipt ReturnURL:
+            %td
+              %input{:maxlength => "250", :name => "vpc_ReturnURL", :size => "65", :value => "http://thevelvetcase.com"}/
+          %tr
+            %td{:align => "right"}
+              %strong
+                %em Payment Server Display Language Locale:
+            %td
+              %input{:maxlength => "5", :name => "vpc_Locale", :size => "20", :value => "en"}/
+          %tr
+            %td{:colspan => "2"}  
+          %tr
+            %td  
+            %td
+              %input{:NAME => "SubButL", :type => "submit", :value => "Pay Now!"}/
+          %tr
+            %td{:colspan => "2"}
+              \ 
+              %hr{:width => "75%"}  
+          %tr.title
+            %td{:colspan => "2"}
+              %p
+                %strong  External Payment Selection Fields
+                \ 
+                %font{:size => "1"} (Bypasses Card Selection page on Payment Server)
+          %tr
+            %td{:align => "right"}
+              %strong
+                %em Gateway:
+            %td
+              %select{:name => "vpc_gateway"}
+                %option{:value => ""} Please Select
+                %option{:value => "ssl"} Normal
+          %tr.shade
+            %td{:align => "right"}
+              %strong
+                %em Card Type:
+            %td
+              %select{:name => "vpc_card"}
+                %option{:value => ""} Please Select
+                %option{:value => "Amex"} American Express
+                %option{:value => "AmexPurchaseCard"} Amex Corporate Purchase Card
+                %option{:value => "Dinersclub"} Diners Club
+                %option{:value => "JCB"} JCB
+                %option{:value => "Mastercard"} MasterCard
+                %option{:value => "Visa"} Visa
+          %tr.shade
+            %td{:align => "right"}
+              %strong
+                %em Card Number:
+            %td
+              %input{:maxlength => "40", :name => "vpc_CardNum", :value => ""}/
+          %tr
+            %td{:align => "right"}
+              %strong
+                %em Card Expiry Date (YYMM):
+            %td
+              %input{:maxlength => "40", :name => "vpc_CardExp", :value => ""}/
+          %tr
+            %td{:align => "right"}
+              %strong
+                %em Card Security Code:
+            %td
+              %input{:maxlength => "4", :name => "vpc_CardSecurityCode", :value => ""}/
+          %tr
+            %td{:colspan => "2"}
+              \ 
+              %hr{:width => "75%"}  
+          %tr.title
+            %td{:colspan => "2"}
+              %p
+                %strong  Optional Ticket Number Field
+          %tr
+            %td{:align => "right"}
+              %strong
+                %em TicketNo:
+            %td
+              %input{:maxlength => "15", :name => "vpc_TicketNo", :value => ""}/
+          %tr
+            %td{:colspan => "2"}
+              \ 
+              %hr{:width => "75%"}  
+          %tr.title
+            %td{:colspan => "2"}
+              %p
+                %strong  Optional Extended Address Verfication Service Fields
+          %tr
+            %td{:align => "right"}
+              %strong
+                %em Billing Title:
+            %td
+              %input{:name => "vpc_BillTo_Title", :value => ""}/
+          %tr.shade
+            %td{:align => "right"}
+              %strong
+                %em Billing  Firstname:
+            %td
+              %input{:name => "vpc_BillTo_Firstname", :value => ""}/
+          %tr
+            %td{:align => "right"}
+              %strong
+                %em Billing  Middlename:
+            %td
+              %input{:name => "vpc_BillTo_Middlename", :value => ""}/
+          %tr.shade
+            %td{:align => "right"}
+              %strong
+                %em Billing  Lastname:
+            %td
+              %input{:name => "vpc_BillTo_Lastname", :value => ""}/
+          %tr
+            %td{:align => "right"}
+              %strong
+                %em Billing  Phone Number:
+            %td
+              %input{:name => "vpc_BillTo_Phone", :value => ""}/
+          %tr.shade
+            %td{:align => "right"}
+              %strong
+                %em Billing Street/PO Box Address:
+            %td
+              %input{:maxlength => "20", :name => "vpc_AVS_Street01", :value => ""}
+                %em (Compulsory field if using AVS)
+          %tr
+            %td{:align => "right"}
+              %strong
+                %em Billing City/Town:
+            %td
+              %input{:name => "vpc_AVS_City", :value => ""}/
+          %tr.shade
+            %td{:align => "right"}
+              %strong
+                %em Billing State/Province:
+            %td
+              %input{:maxlength => "5", :name => "vpc_AVS_StateProv", :value => ""}/
+          %tr
+            %td{:align => "right"}
+              %strong
+                %em Billing Zip/Post Code:
+            %td
+              %input{:maxlength => "9", :name => "vpc_AVS_PostCode", :value => ""}
+                %em (Compulsory field if using AVS)
+          %tr.shade
+            %td{:align => "right"}
+              %strong
+                %em Billing Country of Issue:
+            %td
+              %select{:name => "vpc_AVS_Country"}
+                / ISO3166 Standard as of 20 September 2001
+                %option{:value => ""} Please Select
+                %option{:value => "AFG"} Afghanistan
+                %option{:value => "ALB"} Albania
+                %option{:value => "DZA"} Algeria
+                %option{:value => "ASM"} American Samoa
+                %option{:value => "AND"} Andorra
+                %option{:value => "AGO"} Angola
+                %option{:value => "AIA"} Anguilla
+                %option{:value => "ATA"} Antarctica
+                %option{:value => "ATG"} Antigua And Barbuda
+                %option{:value => "ARG"} Argentina
+                %option{:value => "ARM"} Armenia
+                %option{:value => "ABW"} Aruba
+                %option{:value => "AUS"} Australia
+                %option{:value => "AUT"} Austria
+                %option{:value => "AZE"} Azerbaijan
+                %option{:value => "BHS"} Bahamas
+                %option{:value => "BHR"} Bahrain
+                %option{:value => "BGD"} Bangladesh
+                %option{:value => "BRB"} Barbados
+                %option{:value => "BLR"} Belarus
+                %option{:value => "BEL"} Belgium
+                %option{:value => "BLZ"} Belize
+                %option{:value => "BEN"} Benin
+                %option{:value => "BMU"} Bermuda
+                %option{:value => "BTN"} Bhutan
+                %option{:value => "BOL"} Bolivia
+                %option{:value => "BIH"} Bosnia And Herzegowina
+                %option{:value => "BWA"} Botswana
+                %option{:value => "BVT"} Bouvet Island
+                %option{:value => "BRA"} Brazil
+                %option{:value => "IOT"} British Indian Ocean Territory
+                %option{:value => "BRN"} Brunei Darussalam
+                %option{:value => "BGR"} Bulgaria
+                %option{:value => "BFA"} Burkina Faso
+                %option{:value => "BDI"} Burundi
+                %option{:value => "KHM"} Cambodia
+                %option{:value => "CMR"} Cameroon
+                %option{:value => "CAN"} Canada
+                %option{:value => "CPV"} Cape Verde
+                %option{:value => "CYM"} Cayman Islands
+                %option{:value => "CAF"} Central African Republic
+                %option{:value => "TCD"} Chad
+                %option{:value => "CHL"} Chile
+                %option{:value => "CHN"} China
+                %option{:value => "CXR"} Christmas Island
+                %option{:value => "CCK"} Cocos (Keeling) Islands
+                %option{:value => "COL"} Colombia
+                %option{:value => "COM"} Comoros
+                %option{:value => "COG"} Congo
+                %option{:value => "COK"} Cook Islands
+                %option{:value => "CRI"} Costa Rica
+                %option{:value => "CIV"} Cote D'ivoire
+                %option{:value => "HRV"} Croatia
+                %option{:value => "CUB"} Cuba
+                %option{:value => "CYP"} Cyprus
+                %option{:value => "CZE"} Czech Republic
+                %option{:value => "DNK"} Denmark
+                %option{:value => "DJI"} Djibouti
+                %option{:value => "DMA"} Dominica
+                %option{:value => "DOM"} Dominican Republic
+                %option{:value => "TMP"} East Timor
+                %option{:value => "ECU"} Ecuador
+                %option{:value => "EGY"} Egypt
+                %option{:value => "SLV"} El Salvador
+                %option{:value => "GNQ"} Equatorial Guinea
+                %option{:value => "ERI"} Eritrea
+                %option{:value => "EST"} Estonia
+                %option{:value => "ETH"} Ethiopia
+                %option{:value => "FLK"} Falkland Islands (Malvinas)
+                %option{:value => "FRO"} Faroe Islands
+                %option{:value => "FJI"} Fiji
+                %option{:value => "FIN"} Finland
+                %option{:value => "FRA"} France
+                %option{:value => "FXX"} France, Metropolitan
+                %option{:value => "GUF"} French Guiana
+                %option{:value => "PYF"} French Polynesia
+                %option{:value => "ATF"} French Southern Territories
+                %option{:value => "GAB"} Gabon
+                %option{:value => "GMB"} Gambia
+                %option{:value => "GEO"} Georgia
+                %option{:value => "DEU"} Germany
+                %option{:value => "GHA"} Ghana
+                %option{:value => "GIB"} Gibraltar
+                %option{:value => "GRC"} Greece
+                %option{:value => "GRL"} Greenland
+                %option{:value => "GRD"} Grenada
+                %option{:value => "GLP"} Guadeloupe
+                %option{:value => "GUM"} Guam
+                %option{:value => "GTM"} Guatemala
+                %option{:value => "GIN"} Guinea
+                %option{:value => "GNB"} Guinea-Bissau
+                %option{:value => "GUY"} Guyana
+                %option{:value => "HTI"} Haiti
+                %option{:value => "HMD"} Heard And Mc Donald Islands
+                %option{:value => "HND"} Honduras
+                %option{:value => "HKG"} Hong Kong
+                %option{:value => "HUN"} Hungary
+                %option{:value => "ISL"} Iceland
+                %option{:value => "IND"} India
+                %option{:value => "IDN"} Indonesia
+                %option{:value => "IRN"} Iran (Islamic Republic Of)
+                %option{:value => "IRQ"} Iraq
+                %option{:value => "IRL"} Ireland
+                %option{:value => "ISR"} Israel
+                %option{:value => "ITA"} Italy
+                %option{:value => "JAM"} Jamaica
+                %option{:value => "JPN"} Japan
+                %option{:value => "JOR"} Jordan
+                %option{:value => "KAZ"} Kazakhstan
+                %option{:value => "KEN"} Kenya
+                %option{:value => "KIR"} Kiribati
+                %option{:value => "PRK"} Korea, Democratic People's Republic Of
+                %option{:value => "KOR"} Korea, Republic Of
+                %option{:value => "KWT"} Kuwait
+                %option{:value => "KGZ"} Kyrgyzstan
+                %option{:value => "LAO"} Lao People's Democratic Republic
+                %option{:value => "LVA"} Latvia
+                %option{:value => "LBN"} Lebanon
+                %option{:value => "LSO"} Lesotho
+                %option{:value => "LBR"} Liberia
+                %option{:value => "LBY"} Libyan Arab Jamahiriya
+                %option{:value => "LIE"} Liechtenstein
+                %option{:value => "LTU"} Lithuania
+                %option{:value => "LUX"} Luxembourg
+                %option{:value => "MAC"} Macau
+                %option{:value => "MKD"} Macedonia, The Former Yugoslav Republic Of
+                %option{:value => "MDG"} Madagascar
+                %option{:value => "MWI"} Malawi
+                %option{:value => "MYS"} Malaysia
+                %option{:value => "MDV"} Maldives
+                %option{:value => "MLI"} Mali
+                %option{:value => "MLT"} Malta
+                %option{:value => "MHL"} Marshall Islands
+                %option{:value => "MTQ"} Martinique
+                %option{:value => "MRT"} Mauritania
+                %option{:value => "MUS"} Mauritius
+                %option{:value => "MYT"} Mayotte
+                %option{:value => "MEX"} Mexico
+                %option{:value => "FSM"} Micronesia (Federated States Of)
+                %option{:value => "MDA"} Moldova, Republic Of
+                %option{:value => "MCO"} Monaco
+                %option{:value => "MNG"} Mongolia
+                %option{:value => "MSR"} Montserrat
+                %option{:value => "MAR"} Morocco
+                %option{:value => "MOZ"} Mozambique
+                %option{:value => "MMR"} Myanmar
+                %option{:value => "NAM"} Namibia
+                %option{:value => "NRU"} Nauru
+                %option{:value => "NPL"} Nepal
+                %option{:value => "NLD"} Netherlands
+                %option{:value => "ANT"} Netherlands Antilles
+                %option{:value => "NCL"} New Caledonia
+                %option{:value => "NZL"} New Zealand
+                %option{:value => "NIC"} Nicaragua
+                %option{:value => "NER"} Niger
+                %option{:value => "NGA"} Nigeria
+                %option{:value => "NIU"} Niue
+                %option{:value => "NFK"} Norfolk Island
+                %option{:value => "MNP"} Northern Mariana Islands
+                %option{:value => "NOR"} Norway
+                %option{:value => "OMN"} Oman
+                %option{:value => "PAK"} Pakistan
+                %option{:value => "PLW"} Palau
+                %option{:value => "PAN"} Panama
+                %option{:value => "PNG"} Papua New Guinea
+                %option{:value => "PRY"} Paraguay
+                %option{:value => "PER"} Peru
+                %option{:value => "PHL"} Philippines
+                %option{:value => "PCN"} Pitcairn
+                %option{:value => "POL"} Poland
+                %option{:value => "PRT"} Portugal
+                %option{:value => "PRI"} Puerto Rico
+                %option{:value => "QAT"} Qatar
+                %option{:value => "REU"} Reunion
+                %option{:value => "ROM"} Romania
+                %option{:value => "RUS"} Russian Federation
+                %option{:value => "RWA"} Rwanda
+                %option{:value => "SHN"} St. Helena
+                %option{:value => "KNA"} Saint Kitts And Nevis
+                %option{:value => "LCA"} Saint Lucia
+                %option{:value => "SPM"} St. Pierre And Miquelon
+                %option{:value => "VCT"} Saint Vincent And The Grenadines
+                %option{:value => "WSM"} Samoa
+                %option{:value => "SMR"} San Marino
+                %option{:value => "STP"} Sao Tome And Principe
+                %option{:value => "SAU"} Saudi Arabia
+                %option{:value => "SEN"} Senegal
+                %option{:value => "SYC"} Seychelles
+                %option{:value => "SLE"} Sierra Leone
+                %option{:value => "SGP"} Singapore
+                %option{:value => "SVK"} Slovakia
+                %option{:value => "SVN"} Slovenia
+                %option{:value => "SLB"} Solomon Islands
+                %option{:value => "SOM"} Somalia
+                %option{:value => "ZAF"} South Africa
+                %option{:value => "SGS"} South Georgia And The South Sandwich Islands
+                %option{:value => "ESP"} Spain
+                %option{:value => "LKA"} Sri Lanka
+                %option{:value => "SDN"} Sudan
+                %option{:value => "SUR"} Suriname
+                %option{:value => "SJM"} Svalbard And Jan Mayen Islands
+                %option{:value => "SWZ"} Swaziland
+                %option{:value => "SWE"} Sweden
+                %option{:value => "CHE"} Switzerland
+                %option{:value => "SYR"} Syrian Arab Republic
+                %option{:value => "TWN"} Taiwan, Province Of China
+                %option{:value => "TJK"} Tajikistan
+                %option{:value => "TZA"} Tanzania, United Republic Of
+                %option{:value => "THA"} Thailand
+                %option{:value => "TGO"} Togo
+                %option{:value => "TKL"} Tokelau
+                %option{:value => "TON"} Tonga
+                %option{:value => "TTO"} Trinidad And Tobago
+                %option{:value => "TUN"} Tunisia
+                %option{:value => "TUR"} Turkey
+                %option{:value => "TKM"} Turkmenistan
+                %option{:value => "TCA"} Turks And Caicos Islands
+                %option{:value => "TUV"} Tuvalu
+                %option{:value => "UGA"} Uganda
+                %option{:value => "UKR"} Ukraine
+                %option{:value => "ARE"} United Arab Emirates
+                %option{:value => "GBR"} United Kingdom
+                %option{:value => "USA"} United States
+                %option{:value => "UMI"} United States Minor Outlying Islands
+                %option{:value => "URY"} Uruguay
+                %option{:value => "UZB"} Uzbekistan
+                %option{:value => "VUT"} Vanuatu
+                %option{:value => "VAT"} Vatican City State (Holy See)
+                %option{:value => "VEN"} Venezuela
+                %option{:value => "VNM"} Viet Nam
+                %option{:value => "VGB"} Virgin Islands (British)
+                %option{:value => "VIR"} Virgin Islands (U.S.)
+                %option{:value => "WLF"} Wallis And Futuna Islands
+                %option{:value => "ESH"} Western Sahara
+                %option{:value => "YEM"} Yemen
+                %option{:value => "YUG"} Yugoslavia
+                %option{:value => "ZAR"} Zaire
+                %option{:value => "ZMB"} Zambia
+                %option{:value => "ZWE"} Zimbabwe
+          %tr
+            %td{:align => "right"}
+              %strong
+                %em Ship-To Fullname:
+            %td
+              %input{:name => "vpc_ShipTo_Fullname", :value => ""}/
+          %tr.shade
+            %td{:align => "right"}
+              %strong
+                %em Ship-to  Title:
+            %td
+              %input{:name => "vpc_ShipTo_Title", :value => ""}/
+          %tr
+            %td{:align => "right"}
+              %strong
+                %em Ship-to  Firstname:
+            %td
+              %input{:name => "vpc_ShipTo_Firstname", :value => ""}/
+          %tr.shade
+            %td{:align => "right"}
+              %strong
+                %em Ship-to  Middlename:
+            %td
+              %input{:name => "vpc_ShipTo_Middlename", :value => ""}/
+          %tr
+            %td{:align => "right"}
+              %strong
+                %em Ship-to  Lastname:
+            %td
+              %input{:name => "vpc_ShipTo_Lastname", :value => ""}/
+          %tr.shade
+            %td{:align => "right"}
+              %strong
+                %em Ship-to Phone Number:
+            %td
+              %input{:name => "vpc_ShipTo_Phone", :value => ""}/
+          %tr
+            %td{:align => "right"}
+              %strong
+                %em Ship-to Street/PO Box Address:
+            %td
+              %input{:name => "vpc_ShipTo_Street01", :value => ""}/
+          %tr.shade
+            %td{:align => "right"}
+              %strong
+                %em Ship-to City/Town:
+            %td
+              %input{:name => "vpc_ShipTo_City", :value => ""}/
+          %tr
+            %td{:align => "right"}
+              %strong
+                %em Ship-to State/Province:
+            %td
+              %input{:maxlength => "5", :name => "vpc_ShipTo_StateProv", :value => ""}/
+          %tr.shade
+            %td{:align => "right"}
+              %strong
+                %em Ship-to Zip/Post Code:
+            %td
+              %input{:maxlength => "9", :name => "vpc_ShipTo_PostCode", :value => ""}/
+          %tr
+            %td{:align => "right"}
+              %strong
+                %em Ship-to Country of Issue:
+            %td
+              %select{:name => "vpc_ShipTo_Country"}
+                / ISO3166 Standard as of 20 September 2001
+                %option{:value => ""} Please Select
+                %option{:value => "AFG"} Afghanistan
+                %option{:value => "ALB"} Albania
+                %option{:value => "DZA"} Algeria
+                %option{:value => "ASM"} American Samoa
+                %option{:value => "AND"} Andorra
+                %option{:value => "AGO"} Angola
+                %option{:value => "AIA"} Anguilla
+                %option{:value => "ATA"} Antarctica
+                %option{:value => "ATG"} Antigua And Barbuda
+                %option{:value => "ARG"} Argentina
+                %option{:value => "ARM"} Armenia
+                %option{:value => "ABW"} Aruba
+                %option{:value => "AUS"} Australia
+                %option{:value => "AUT"} Austria
+                %option{:value => "AZE"} Azerbaijan
+                %option{:value => "BHS"} Bahamas
+                %option{:value => "BHR"} Bahrain
+                %option{:value => "BGD"} Bangladesh
+                %option{:value => "BRB"} Barbados
+                %option{:value => "BLR"} Belarus
+                %option{:value => "BEL"} Belgium
+                %option{:value => "BLZ"} Belize
+                %option{:value => "BEN"} Benin
+                %option{:value => "BMU"} Bermuda
+                %option{:value => "BTN"} Bhutan
+                %option{:value => "BOL"} Bolivia
+                %option{:value => "BIH"} Bosnia And Herzegowina
+                %option{:value => "BWA"} Botswana
+                %option{:value => "BVT"} Bouvet Island
+                %option{:value => "BRA"} Brazil
+                %option{:value => "IOT"} British Indian Ocean Territory
+                %option{:value => "BRN"} Brunei Darussalam
+                %option{:value => "BGR"} Bulgaria
+                %option{:value => "BFA"} Burkina Faso
+                %option{:value => "BDI"} Burundi
+                %option{:value => "KHM"} Cambodia
+                %option{:value => "CMR"} Cameroon
+                %option{:value => "CAN"} Canada
+                %option{:value => "CPV"} Cape Verde
+                %option{:value => "CYM"} Cayman Islands
+                %option{:value => "CAF"} Central African Republic
+                %option{:value => "TCD"} Chad
+                %option{:value => "CHL"} Chile
+                %option{:value => "CHN"} China
+                %option{:value => "CXR"} Christmas Island
+                %option{:value => "CCK"} Cocos (Keeling) Islands
+                %option{:value => "COL"} Colombia
+                %option{:value => "COM"} Comoros
+                %option{:value => "COG"} Congo
+                %option{:value => "COK"} Cook Islands
+                %option{:value => "CRI"} Costa Rica
+                %option{:value => "CIV"} Cote D'ivoire
+                %option{:value => "HRV"} Croatia
+                %option{:value => "CUB"} Cuba
+                %option{:value => "CYP"} Cyprus
+                %option{:value => "CZE"} Czech Republic
+                %option{:value => "DNK"} Denmark
+                %option{:value => "DJI"} Djibouti
+                %option{:value => "DMA"} Dominica
+                %option{:value => "DOM"} Dominican Republic
+                %option{:value => "TMP"} East Timor
+                %option{:value => "ECU"} Ecuador
+                %option{:value => "EGY"} Egypt
+                %option{:value => "SLV"} El Salvador
+                %option{:value => "GNQ"} Equatorial Guinea
+                %option{:value => "ERI"} Eritrea
+                %option{:value => "EST"} Estonia
+                %option{:value => "ETH"} Ethiopia
+                %option{:value => "FLK"} Falkland Islands (Malvinas)
+                %option{:value => "FRO"} Faroe Islands
+                %option{:value => "FJI"} Fiji
+                %option{:value => "FIN"} Finland
+                %option{:value => "FRA"} France
+                %option{:value => "FXX"} France, Metropolitan
+                %option{:value => "GUF"} French Guiana
+                %option{:value => "PYF"} French Polynesia
+                %option{:value => "ATF"} French Southern Territories
+                %option{:value => "GAB"} Gabon
+                %option{:value => "GMB"} Gambia
+                %option{:value => "GEO"} Georgia
+                %option{:value => "DEU"} Germany
+                %option{:value => "GHA"} Ghana
+                %option{:value => "GIB"} Gibraltar
+                %option{:value => "GRC"} Greece
+                %option{:value => "GRL"} Greenland
+                %option{:value => "GRD"} Grenada
+                %option{:value => "GLP"} Guadeloupe
+                %option{:value => "GUM"} Guam
+                %option{:value => "GTM"} Guatemala
+                %option{:value => "GIN"} Guinea
+                %option{:value => "GNB"} Guinea-Bissau
+                %option{:value => "GUY"} Guyana
+                %option{:value => "HTI"} Haiti
+                %option{:value => "HMD"} Heard And Mc Donald Islands
+                %option{:value => "HND"} Honduras
+                %option{:value => "HKG"} Hong Kong
+                %option{:value => "HUN"} Hungary
+                %option{:value => "ISL"} Iceland
+                %option{:value => "IND"} India
+                %option{:value => "IDN"} Indonesia
+                %option{:value => "IRN"} Iran (Islamic Republic Of)
+                %option{:value => "IRQ"} Iraq
+                %option{:value => "IRL"} Ireland
+                %option{:value => "ISR"} Israel
+                %option{:value => "ITA"} Italy
+                %option{:value => "JAM"} Jamaica
+                %option{:value => "JPN"} Japan
+                %option{:value => "JOR"} Jordan
+                %option{:value => "KAZ"} Kazakhstan
+                %option{:value => "KEN"} Kenya
+                %option{:value => "KIR"} Kiribati
+                %option{:value => "PRK"} Korea, Democratic People's Republic Of
+                %option{:value => "KOR"} Korea, Republic Of
+                %option{:value => "KWT"} Kuwait
+                %option{:value => "KGZ"} Kyrgyzstan
+                %option{:value => "LAO"} Lao People's Democratic Republic
+                %option{:value => "LVA"} Latvia
+                %option{:value => "LBN"} Lebanon
+                %option{:value => "LSO"} Lesotho
+                %option{:value => "LBR"} Liberia
+                %option{:value => "LBY"} Libyan Arab Jamahiriya
+                %option{:value => "LIE"} Liechtenstein
+                %option{:value => "LTU"} Lithuania
+                %option{:value => "LUX"} Luxembourg
+                %option{:value => "MAC"} Macau
+                %option{:value => "MKD"} Macedonia, The Former Yugoslav Republic Of
+                %option{:value => "MDG"} Madagascar
+                %option{:value => "MWI"} Malawi
+                %option{:value => "MYS"} Malaysia
+                %option{:value => "MDV"} Maldives
+                %option{:value => "MLI"} Mali
+                %option{:value => "MLT"} Malta
+                %option{:value => "MHL"} Marshall Islands
+                %option{:value => "MTQ"} Martinique
+                %option{:value => "MRT"} Mauritania
+                %option{:value => "MUS"} Mauritius
+                %option{:value => "MYT"} Mayotte
+                %option{:value => "MEX"} Mexico
+                %option{:value => "FSM"} Micronesia (Federated States Of)
+                %option{:value => "MDA"} Moldova, Republic Of
+                %option{:value => "MCO"} Monaco
+                %option{:value => "MNG"} Mongolia
+                %option{:value => "MSR"} Montserrat
+                %option{:value => "MAR"} Morocco
+                %option{:value => "MOZ"} Mozambique
+                %option{:value => "MMR"} Myanmar
+                %option{:value => "NAM"} Namibia
+                %option{:value => "NRU"} Nauru
+                %option{:value => "NPL"} Nepal
+                %option{:value => "NLD"} Netherlands
+                %option{:value => "ANT"} Netherlands Antilles
+                %option{:value => "NCL"} New Caledonia
+                %option{:value => "NZL"} New Zealand
+                %option{:value => "NIC"} Nicaragua
+                %option{:value => "NER"} Niger
+                %option{:value => "NGA"} Nigeria
+                %option{:value => "NIU"} Niue
+                %option{:value => "NFK"} Norfolk Island
+                %option{:value => "MNP"} Northern Mariana Islands
+                %option{:value => "NOR"} Norway
+                %option{:value => "OMN"} Oman
+                %option{:value => "PAK"} Pakistan
+                %option{:value => "PLW"} Palau
+                %option{:value => "PAN"} Panama
+                %option{:value => "PNG"} Papua New Guinea
+                %option{:value => "PRY"} Paraguay
+                %option{:value => "PER"} Peru
+                %option{:value => "PHL"} Philippines
+                %option{:value => "PCN"} Pitcairn
+                %option{:value => "POL"} Poland
+                %option{:value => "PRT"} Portugal
+                %option{:value => "PRI"} Puerto Rico
+                %option{:value => "QAT"} Qatar
+                %option{:value => "REU"} Reunion
+                %option{:value => "ROM"} Romania
+                %option{:value => "RUS"} Russian Federation
+                %option{:value => "RWA"} Rwanda
+                %option{:value => "SHN"} St. Helena
+                %option{:value => "KNA"} Saint Kitts And Nevis
+                %option{:value => "LCA"} Saint Lucia
+                %option{:value => "SPM"} St. Pierre And Miquelon
+                %option{:value => "VCT"} Saint Vincent And The Grenadines
+                %option{:value => "WSM"} Samoa
+                %option{:value => "SMR"} San Marino
+                %option{:value => "STP"} Sao Tome And Principe
+                %option{:value => "SAU"} Saudi Arabia
+                %option{:value => "SEN"} Senegal
+                %option{:value => "SYC"} Seychelles
+                %option{:value => "SLE"} Sierra Leone
+                %option{:value => "SGP"} Singapore
+                %option{:value => "SVK"} Slovakia
+                %option{:value => "SVN"} Slovenia
+                %option{:value => "SLB"} Solomon Islands
+                %option{:value => "SOM"} Somalia
+                %option{:value => "ZAF"} South Africa
+                %option{:value => "SGS"} South Georgia And The South Sandwich Islands
+                %option{:value => "ESP"} Spain
+                %option{:value => "LKA"} Sri Lanka
+                %option{:value => "SDN"} Sudan
+                %option{:value => "SUR"} Suriname
+                %option{:value => "SJM"} Svalbard And Jan Mayen Islands
+                %option{:value => "SWZ"} Swaziland
+                %option{:value => "SWE"} Sweden
+                %option{:value => "CHE"} Switzerland
+                %option{:value => "SYR"} Syrian Arab Republic
+                %option{:value => "TWN"} Taiwan, Province Of China
+                %option{:value => "TJK"} Tajikistan
+                %option{:value => "TZA"} Tanzania, United Republic Of
+                %option{:value => "THA"} Thailand
+                %option{:value => "TGO"} Togo
+                %option{:value => "TKL"} Tokelau
+                %option{:value => "TON"} Tonga
+                %option{:value => "TTO"} Trinidad And Tobago
+                %option{:value => "TUN"} Tunisia
+                %option{:value => "TUR"} Turkey
+                %option{:value => "TKM"} Turkmenistan
+                %option{:value => "TCA"} Turks And Caicos Islands
+                %option{:value => "TUV"} Tuvalu
+                %option{:value => "UGA"} Uganda
+                %option{:value => "UKR"} Ukraine
+                %option{:value => "ARE"} United Arab Emirates
+                %option{:value => "GBR"} United Kingdom
+                %option{:value => "USA"} United States
+                %option{:value => "UMI"} United States Minor Outlying Islands
+                %option{:value => "URY"} Uruguay
+                %option{:value => "UZB"} Uzbekistan
+                %option{:value => "VUT"} Vanuatu
+                %option{:value => "VAT"} Vatican City State (Holy See)
+                %option{:value => "VEN"} Venezuela
+                %option{:value => "VNM"} Viet Nam
+                %option{:value => "VGB"} Virgin Islands (British)
+                %option{:value => "VIR"} Virgin Islands (U.S.)
+                %option{:value => "WLF"} Wallis And Futuna Islands
+                %option{:value => "ESH"} Western Sahara
+                %option{:value => "YEM"} Yemen
+                %option{:value => "YUG"} Yugoslavia
+                %option{:value => "ZAR"} Zaire
+                %option{:value => "ZMB"} Zambia
+                %option{:value => "ZWE"} Zimbabwe
+          %tr
+            %td{:colspan => "2"}
+              \ 
+              %hr{:width => "75%"}  
+          %tr.title
+            %td{:colspan => "2"}
+              %p
+                %strong  Optional Airline Passenger Data Fields
+          %tr
+            %td{:align => "center", :colspan => "2"}
+              You cannot send both (APD and ITD) together for a single transaction. One or the other, but not both.
+              = succeed "An" do
+                %br/
+              error will be thrown it you try and send both.
+          %tr.shade
+            %td{:align => "right"}
+              %strong
+                %em Departure Date:
+            %td
+              %input{:name => "vpc_APD_DeptDate", :value => ""}/
+          %tr
+            %td{:align => "right"}
+              %strong
+                %em Passenger Title:
+            %td
+              %input{:name => "vpc_APD_PassengerTitle", :value => ""}/
+          %tr.shade
+            %td{:align => "right"}
+              %strong
+                %em Passenger Firstname:
+            %td
+              %input{:name => "vpc_APD_PassengerFirstname", :value => ""}/
+          %tr
+            %td{:align => "right"}
+              %strong
+                %em Passenger Middlename:
+            %td
+              %input{:name => "vpc_APD_PassengerMiddlename", :value => ""}/
+          %tr.shade
+            %td{:align => "right"}
+              %strong
+                %em Passenger Lastname:
+            %td
+              %input{:name => "vpc_APD_PassengerLastname", :value => ""}/
+          %tr
+            %td{:align => "right"}
+              %strong
+                %em Cardmember Title:
+            %td
+              %input{:name => "vpc_APD_CardmemberTitle", :value => ""}/
+          %tr.shade
+            %td{:align => "right"}
+              %strong
+                %em Cardmember Firstname:
+            %td
+              %input{:name => "vpc_APD_CardmemberFirstname", :value => ""}/
+          %tr
+            %td{:align => "right"}
+              %strong
+                %em Cardmember Middlename:
+            %td
+              %input{:name => "vpc_APD_CardmemberMiddlename", :value => ""}/
+          %tr.shade
+            %td{:align => "right"}
+              %strong
+                %em Cardmember Lastname:
+            %td
+              %input{:name => "vpc_APD_CardmemberLastname", :value => ""}/
+          %tr
+            %td{:align => "right"}
+              %strong
+                %em Origin:
+            %td
+              %input{:name => "vpc_APD_Origin", :value => ""}/
+          %tr.shade
+            %td{:align => "right"}
+              %strong
+                %em Destination:
+            %td
+              %input{:name => "vpc_APD_Dest", :value => ""}/
+          %tr
+            %td{:align => "right"}
+              %strong
+                %em Routing Cities:
+            %td
+              %input{:name => "vpc_APD_Route", :value => ""}/
+          %tr.shade
+            %td{:align => "right"}
+              %strong
+                %em Airline Carriers:
+            %td
+              %input{:name => "vpc_APD_Carriers", :value => ""}/
+          %tr
+            %td{:align => "right"}
+              %strong
+                %em Fare Basis:
+            %td
+              %input{:name => "vpc_APD_FareBasis", :value => ""}/
+          %tr.shade
+            %td{:align => "right"}
+              %strong
+                %em Number of Passengers:
+            %td
+              %input{:name => "vpc_APD_NumPassengers", :value => ""}/
+          %tr
+            %td{:align => "right"}
+              %strong
+                %em E-Ticket Indicator:
+            %td
+              %input{:maxlength => "1", :name => "vpc_APD_eTicket", :value => ""}/
+          %tr.shade
+            %td{:align => "right"}
+              %strong
+                %em Reservation Code:
+            %td
+              %input{:name => "vpc_APD_ResCode", :value => ""}/
+          %tr
+            %td{:align => "right"}
+              %strong
+                %em IATA (Travel Agent Code):
+            %td
+              %input{:name => "vpc_APD_TravelAgentCode", :value => ""}/
+          %tr
+            %td{:colspan => "2"}
+              \ 
+              %hr{:width => "80%"}  
+          %tr.title
+            %td{:colspan => "2"}
+              %p
+                %strong  Optional Internet Source Data Fields
+          %tr
+            %td{:align => "center", :colspan => "2"}
+              You cannot send both (APD and ITD) together for a single transaction. One or the other, but not both.
+              = succeed "An" do
+                %br/
+              error will be thrown it you try and send both.
+          %tr.shade
+            %td{:align => "right"}
+              %strong
+                %em Customer Email:
+            %td
+              %input{:name => "vpc_CustomerEmail", :value => ""}/
+          %tr
+            %td{:align => "right"}
+              %strong
+                %em Customer Hostname:
+            %td
+              %input{:name => "vpc_ITD_CustomerHostname", :value => ""}/
+          %tr.shade
+            %td{:align => "right"}
+              %strong
+                %em Http Browser Type:
+            %td
+              %input{:name => "vpc_ITD_CustomerBrowser", :value => ""}/
+          %tr
+            %td{:align => "right"}
+              %strong
+                %em Shipping Method Code:
+            %td
+              %input{:name => "vpc_ITD_ShipMethodCode", :value => ""}/
+          %tr.shade
+            %td{:align => "right"}
+              %strong
+                %em Ship To Country Code:
+            %td
+              %select{:name => "vpc_ITD_ShipToCountryCode"}
+                / ISO3166 Standard as of 20 September 2001
+                %option{:value => ""} Please Select
+                %option{:value => "AFG"} Afghanistan
+                %option{:value => "ALB"} Albania
+                %option{:value => "DZA"} Algeria
+                %option{:value => "ASM"} American Samoa
+                %option{:value => "AND"} Andorra
+                %option{:value => "AGO"} Angola
+                %option{:value => "AIA"} Anguilla
+                %option{:value => "ATA"} Antarctica
+                %option{:value => "ATG"} Antigua And Barbuda
+                %option{:value => "ARG"} Argentina
+                %option{:value => "ARM"} Armenia
+                %option{:value => "ABW"} Aruba
+                %option{:value => "AUS"} Australia
+                %option{:value => "AUT"} Austria
+                %option{:value => "AZE"} Azerbaijan
+                %option{:value => "BHS"} Bahamas
+                %option{:value => "BHR"} Bahrain
+                %option{:value => "BGD"} Bangladesh
+                %option{:value => "BRB"} Barbados
+                %option{:value => "BLR"} Belarus
+                %option{:value => "BEL"} Belgium
+                %option{:value => "BLZ"} Belize
+                %option{:value => "BEN"} Benin
+                %option{:value => "BMU"} Bermuda
+                %option{:value => "BTN"} Bhutan
+                %option{:value => "BOL"} Bolivia
+                %option{:value => "BIH"} Bosnia And Herzegowina
+                %option{:value => "BWA"} Botswana
+                %option{:value => "BVT"} Bouvet Island
+                %option{:value => "BRA"} Brazil
+                %option{:value => "IOT"} British Indian Ocean Territory
+                %option{:value => "BRN"} Brunei Darussalam
+                %option{:value => "BGR"} Bulgaria
+                %option{:value => "BFA"} Burkina Faso
+                %option{:value => "BDI"} Burundi
+                %option{:value => "KHM"} Cambodia
+                %option{:value => "CMR"} Cameroon
+                %option{:value => "CAN"} Canada
+                %option{:value => "CPV"} Cape Verde
+                %option{:value => "CYM"} Cayman Islands
+                %option{:value => "CAF"} Central African Republic
+                %option{:value => "TCD"} Chad
+                %option{:value => "CHL"} Chile
+                %option{:value => "CHN"} China
+                %option{:value => "CXR"} Christmas Island
+                %option{:value => "CCK"} Cocos (Keeling) Islands
+                %option{:value => "COL"} Colombia
+                %option{:value => "COM"} Comoros
+                %option{:value => "COG"} Congo
+                %option{:value => "COK"} Cook Islands
+                %option{:value => "CRI"} Costa Rica
+                %option{:value => "CIV"} Cote D'ivoire
+                %option{:value => "HRV"} Croatia
+                %option{:value => "CUB"} Cuba
+                %option{:value => "CYP"} Cyprus
+                %option{:value => "CZE"} Czech Republic
+                %option{:value => "DNK"} Denmark
+                %option{:value => "DJI"} Djibouti
+                %option{:value => "DMA"} Dominica
+                %option{:value => "DOM"} Dominican Republic
+                %option{:value => "TMP"} East Timor
+                %option{:value => "ECU"} Ecuador
+                %option{:value => "EGY"} Egypt
+                %option{:value => "SLV"} El Salvador
+                %option{:value => "GNQ"} Equatorial Guinea
+                %option{:value => "ERI"} Eritrea
+                %option{:value => "EST"} Estonia
+                %option{:value => "ETH"} Ethiopia
+                %option{:value => "FLK"} Falkland Islands (Malvinas)
+                %option{:value => "FRO"} Faroe Islands
+                %option{:value => "FJI"} Fiji
+                %option{:value => "FIN"} Finland
+                %option{:value => "FRA"} France
+                %option{:value => "FXX"} France, Metropolitan
+                %option{:value => "GUF"} French Guiana
+                %option{:value => "PYF"} French Polynesia
+                %option{:value => "ATF"} French Southern Territories
+                %option{:value => "GAB"} Gabon
+                %option{:value => "GMB"} Gambia
+                %option{:value => "GEO"} Georgia
+                %option{:value => "DEU"} Germany
+                %option{:value => "GHA"} Ghana
+                %option{:value => "GIB"} Gibraltar
+                %option{:value => "GRC"} Greece
+                %option{:value => "GRL"} Greenland
+                %option{:value => "GRD"} Grenada
+                %option{:value => "GLP"} Guadeloupe
+                %option{:value => "GUM"} Guam
+                %option{:value => "GTM"} Guatemala
+                %option{:value => "GIN"} Guinea
+                %option{:value => "GNB"} Guinea-Bissau
+                %option{:value => "GUY"} Guyana
+                %option{:value => "HTI"} Haiti
+                %option{:value => "HMD"} Heard And Mc Donald Islands
+                %option{:value => "HND"} Honduras
+                %option{:value => "HKG"} Hong Kong
+                %option{:value => "HUN"} Hungary
+                %option{:value => "ISL"} Iceland
+                %option{:value => "IND"} India
+                %option{:value => "IDN"} Indonesia
+                %option{:value => "IRN"} Iran (Islamic Republic Of)
+                %option{:value => "IRQ"} Iraq
+                %option{:value => "IRL"} Ireland
+                %option{:value => "ISR"} Israel
+                %option{:value => "ITA"} Italy
+                %option{:value => "JAM"} Jamaica
+                %option{:value => "JPN"} Japan
+                %option{:value => "JOR"} Jordan
+                %option{:value => "KAZ"} Kazakhstan
+                %option{:value => "KEN"} Kenya
+                %option{:value => "KIR"} Kiribati
+                %option{:value => "PRK"} Korea, Democratic People's Republic Of
+                %option{:value => "KOR"} Korea, Republic Of
+                %option{:value => "KWT"} Kuwait
+                %option{:value => "KGZ"} Kyrgyzstan
+                %option{:value => "LAO"} Lao People's Democratic Republic
+                %option{:value => "LVA"} Latvia
+                %option{:value => "LBN"} Lebanon
+                %option{:value => "LSO"} Lesotho
+                %option{:value => "LBR"} Liberia
+                %option{:value => "LBY"} Libyan Arab Jamahiriya
+                %option{:value => "LIE"} Liechtenstein
+                %option{:value => "LTU"} Lithuania
+                %option{:value => "LUX"} Luxembourg
+                %option{:value => "MAC"} Macau
+                %option{:value => "MKD"} Macedonia, The Former Yugoslav Republic Of
+                %option{:value => "MDG"} Madagascar
+                %option{:value => "MWI"} Malawi
+                %option{:value => "MYS"} Malaysia
+                %option{:value => "MDV"} Maldives
+                %option{:value => "MLI"} Mali
+                %option{:value => "MLT"} Malta
+                %option{:value => "MHL"} Marshall Islands
+                %option{:value => "MTQ"} Martinique
+                %option{:value => "MRT"} Mauritania
+                %option{:value => "MUS"} Mauritius
+                %option{:value => "MYT"} Mayotte
+                %option{:value => "MEX"} Mexico
+                %option{:value => "FSM"} Micronesia (Federated States Of)
+                %option{:value => "MDA"} Moldova, Republic Of
+                %option{:value => "MCO"} Monaco
+                %option{:value => "MNG"} Mongolia
+                %option{:value => "MSR"} Montserrat
+                %option{:value => "MAR"} Morocco
+                %option{:value => "MOZ"} Mozambique
+                %option{:value => "MMR"} Myanmar
+                %option{:value => "NAM"} Namibia
+                %option{:value => "NRU"} Nauru
+                %option{:value => "NPL"} Nepal
+                %option{:value => "NLD"} Netherlands
+                %option{:value => "ANT"} Netherlands Antilles
+                %option{:value => "NCL"} New Caledonia
+                %option{:value => "NZL"} New Zealand
+                %option{:value => "NIC"} Nicaragua
+                %option{:value => "NER"} Niger
+                %option{:value => "NGA"} Nigeria
+                %option{:value => "NIU"} Niue
+                %option{:value => "NFK"} Norfolk Island
+                %option{:value => "MNP"} Northern Mariana Islands
+                %option{:value => "NOR"} Norway
+                %option{:value => "OMN"} Oman
+                %option{:value => "PAK"} Pakistan
+                %option{:value => "PLW"} Palau
+                %option{:value => "PAN"} Panama
+                %option{:value => "PNG"} Papua New Guinea
+                %option{:value => "PRY"} Paraguay
+                %option{:value => "PER"} Peru
+                %option{:value => "PHL"} Philippines
+                %option{:value => "PCN"} Pitcairn
+                %option{:value => "POL"} Poland
+                %option{:value => "PRT"} Portugal
+                %option{:value => "PRI"} Puerto Rico
+                %option{:value => "QAT"} Qatar
+                %option{:value => "REU"} Reunion
+                %option{:value => "ROM"} Romania
+                %option{:value => "RUS"} Russian Federation
+                %option{:value => "RWA"} Rwanda
+                %option{:value => "SHN"} St. Helena
+                %option{:value => "KNA"} Saint Kitts And Nevis
+                %option{:value => "LCA"} Saint Lucia
+                %option{:value => "SPM"} St. Pierre And Miquelon
+                %option{:value => "VCT"} Saint Vincent And The Grenadines
+                %option{:value => "WSM"} Samoa
+                %option{:value => "SMR"} San Marino
+                %option{:value => "STP"} Sao Tome And Principe
+                %option{:value => "SAU"} Saudi Arabia
+                %option{:value => "SEN"} Senegal
+                %option{:value => "SYC"} Seychelles
+                %option{:value => "SLE"} Sierra Leone
+                %option{:value => "SGP"} Singapore
+                %option{:value => "SVK"} Slovakia
+                %option{:value => "SVN"} Slovenia
+                %option{:value => "SLB"} Solomon Islands
+                %option{:value => "SOM"} Somalia
+                %option{:value => "ZAF"} South Africa
+                %option{:value => "SGS"} South Georgia And The South Sandwich Islands
+                %option{:value => "ESP"} Spain
+                %option{:value => "LKA"} Sri Lanka
+                %option{:value => "SDN"} Sudan
+                %option{:value => "SUR"} Suriname
+                %option{:value => "SJM"} Svalbard And Jan Mayen Islands
+                %option{:value => "SWZ"} Swaziland
+                %option{:value => "SWE"} Sweden
+                %option{:value => "CHE"} Switzerland
+                %option{:value => "SYR"} Syrian Arab Republic
+                %option{:value => "TWN"} Taiwan, Province Of China
+                %option{:value => "TJK"} Tajikistan
+                %option{:value => "TZA"} Tanzania, United Republic Of
+                %option{:value => "THA"} Thailand
+                %option{:value => "TGO"} Togo
+                %option{:value => "TKL"} Tokelau
+                %option{:value => "TON"} Tonga
+                %option{:value => "TTO"} Trinidad And Tobago
+                %option{:value => "TUN"} Tunisia
+                %option{:value => "TUR"} Turkey
+                %option{:value => "TKM"} Turkmenistan
+                %option{:value => "TCA"} Turks And Caicos Islands
+                %option{:value => "TUV"} Tuvalu
+                %option{:value => "UGA"} Uganda
+                %option{:value => "UKR"} Ukraine
+                %option{:value => "ARE"} United Arab Emirates
+                %option{:value => "GBR"} United Kingdom
+                %option{:value => "USA"} United States
+                %option{:value => "UMI"} United States Minor Outlying Islands
+                %option{:value => "URY"} Uruguay
+                %option{:value => "UZB"} Uzbekistan
+                %option{:value => "VUT"} Vanuatu
+                %option{:value => "VAT"} Vatican City State (Holy See)
+                %option{:value => "VEN"} Venezuela
+                %option{:value => "VNM"} Viet Nam
+                %option{:value => "VGB"} Virgin Islands (British)
+                %option{:value => "VIR"} Virgin Islands (U.S.)
+                %option{:value => "WLF"} Wallis And Futuna Islands
+                %option{:value => "ESH"} Western Sahara
+                %option{:value => "YEM"} Yemen
+                %option{:value => "YUG"} Yugoslavia
+                %option{:value => "ZAR"} Zaire
+                %option{:value => "ZMB"} Zambia
+                %option{:value => "ZWE"} Zimbabwe
+          %tr
+            %td{:align => "right"}
+              %strong
+                %em Merchant Product SKU (Stock Keeping Unit):
+            %td
+              %input{:name => "vpc_ITD_MerchantSKU", :value => ""}/
+          %tr.shade
+            %td{:align => "right"}
+              %strong
+                %em Customer IP Address:
+            %td
+              %input{:name => "vpc_CustomerIpAddress", :value => ""}/
+          %tr
+            %td{:align => "right"}
+              %strong
+                %em Customer ANI (Automatic Number Identiciation):
+            %td
+              %input{:name => "vpc_ITD_CustomerANI", :value => ""}/
+          %tr.shade
+            %td{:align => "right"}
+              %strong
+                %em Customer II Digitits (caller type code):
+            %td
+              %input{:name => "vpc_ITD_CustomerANICallType", :value => ""}/
+          %tr
+            %td{:colspan => "2"}
+              \ 
+              %hr{:width => "75%"}  
+          %tr
+            %td{:colspan => "2"}
+              %p.blue
+                %strong
+                  %em
+                    %u> Note
+                    \:
+                %br/
+                Any information passed through the customer's browser
+                can potentially be modified by the customer, or even by third parties to
+                fraudulently alter the transaction data. Therefore all transactional
+                information should
+                %strong not
+                be passed through the browser in
+                a way that could potentially be modified (e.g. hidden form fields).
+                Transaction data should only be accepted once from a browser at the
+                point of input, and then kept in a way that does not allow others
+                to modify it (e.g. database, server session, etc.). Any transaction
+                information displayed to a customer, such as amount, should be passed
+                only as display information and the actual transactional data should be
+                retrieved from the secure source last thing at the point of processing
+                the transaction.
+              %p.blue
+                Fields like return links back to the order page (AgainLink),
+                titles, (sockets' data when applicable), and any other non-transactional
+                information are only included here in the example for information purposes.
+                They do not apply to the transaction and should not be included in production
+                code orders.
+          %tr
+            %td{:width => "40%"}  
+            %td{:width => "60%"}  
+  %head
+    %meta{:content => "no-cache", "http-equiv" => "cache-control"}/
+    %meta{:content => "no-cache", "http-equiv" => "pragma"}/
+    %meta{:content => "0", "http-equiv" => "expires"}/

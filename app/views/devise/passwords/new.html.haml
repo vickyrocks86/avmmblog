@@ -1,0 +1,46 @@
+= stylesheet_link_tag "all_new"
+.container
+  %figure#logo.columns.alpha.six{"data-hook" => ""}
+    %a{:href => "/"}
+      %img{:alt => "", :src => ""}/
+  %nav#top-nav-bar.columns.omega.ten
+    - if user_signed_in?
+      %ul#nav-bar.inline{"data-hook" => "", :style => "width: 820px;"}
+        %li#home-link{"data-hook" => ""}         
+          = link_to 'Logout', destroy_user_session_path, :method => :delete
+        %li#home-link{"data-hook" => ""}
+          Logged in as:
+          = current_user.email
+    - else
+      %ul#nav-bar.inline{"data-hook" => "", :style => "width: 820px;"}
+        %li#home-link{"data-hook" => ""}
+          = link_to 'Login', new_user_session_path
+    - if current_user.nil? or !current_user.admin?
+      %ul#nav-bar.inline{"data-hook" => "", :style => "width: 820px;"}
+        %li#home-link{"data-hook" => ""}
+          = link_to 'My Cart', cart_path(session[:cart_id])  
+  %nav.columns.alpha.omega.sixteen
+    %ul#main-nav-bar.inline{"data-hook" => ""}
+      %li#home-link{"data-hook" => ""}
+        %div#democart
+        =link_to 'Home', store_index_url
+        -# for c in @categories
+          =# link_to c.name, store_index_url(:parent_id => c.id), :remote => true
+        
+      - if user_signed_in? and current_user.admin?
+        %li#home-link{"data-hook" => ""}
+          =link_to 'Admin', products_url
+  #wrapper.row{"data-hook" => ""}
+    %aside#sidebar.columns.alpha.four{"data-hook" => ""}
+      %div{"data-hook" => "homepage_sidebar_navigation"}
+  %div{:class => "columns omega  twelve"}
+    %h2 Forgot your password?
+    = form_for(resource, :as => resource_name, :url => password_path(resource_name), :html => { :method => :post }) do |f|
+      = devise_error_messages!
+      %div
+        = f.label :email
+        %br/
+        = f.email_field :email
+      %p
+        = f.submit "Send me reset password instructions"
+    = render "links"

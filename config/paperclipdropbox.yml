@@ -1,0 +1,4 @@
+development:
+  dropbox_key: vickyrocks86@gmail.com   # This are not required unless you are modding the gem
+  dropbox_secret: lvrify7d8udemqi   # This are not required unless you are modding the gem
+  path: "/:attachment/:attachment/:id/:style/:filename"

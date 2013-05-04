@@ -1,0 +1,36 @@
+%header
+  .border-bot
+    .main
+      %h1
+        %a{:href => "index.html"} InternetCafe
+      %nav
+        %ul.menu
+          %li
+            %a.active{:href => "index.html"} Home
+          %li
+            %a{:href => "index-1.html"} Events
+          %li
+            %a{:href => "index-2.html"} Services
+          %li
+            %a{:href => "index-3.html"} Jobs
+          %li
+            %a{:href => "index-4.html"} Contacts
+          %li{:style => "float:right;font-size:12px;"}
+            - if user_signed_in? 
+              Login as:
+              = current_user.email
+              - if session[:fb_token]
+                = link_to "Logout", facebook_logout_path
+            - else
+              = link_to "Logout", destroy_user_session_path, :method => :delete
+      .clear
+  .row-bot
+    .slider-wrapper
+      .slider
+        %ul.items
+          %li
+            %img{:alt => "", :src => "/assets/images/slider-img1.jpg"}/
+          %li
+            %img{:alt => "", :src => "/assets/images/slider-img2.jpg"}/
+          %li
+            %img{:alt => "", :src => "/assets/images/slider-img3.jpg"}/

@@ -1,0 +1,55 @@
+.container
+  %div{:style => "padding: 100px 0 0 250px;"}
+    #login-box.login-page
+      %h3
+        - unless user_signed_in? 
+          Login
+        - else
+          = link_to "LOGOUT", destroy_user_session_url, :method => :delete
+      = form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f|
+        #login-box-name{:style => "margin-top:20px;"} Email:
+        #login-box-field{:style => "margin-top:20px;"}
+          = f.text_field :email, :class => "form-login"
+        #login-box-name Password:
+        #login-box-field
+          = f.password_field :password, :class => "form-login"
+        %br/
+        %span.login-box-options
+          %input{:name => "1", :type => "checkbox", :value => "1"}
+            Remember Me
+            %a{:href => "#", :style => "margin-left:30px;"} Forgot password?
+            %br
+            %div{:style => "margin-left:111px;"}
+              = link_to "Sign Up", "#", :class => "signup-link"
+              %br
+              = link_to "Sign in with Facebook", user_omniauth_authorize_path(:facebook)
+        %br/
+        %br/
+        = f.submit "", :style => "width:105px;height: 42px;background: url(/assets/login-btn.png) no-repeat;border:none;box-shadow:none;"
+        
+    #login-box.login-page{:style => "display:none;"}
+      %h3 
+        Sign Up
+        
+      = form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f|
+        #login-box-name{:style => "margin-top:20px;"} Email:
+        #login-box-field{:style => "margin-top:20px;"}
+          = f.text_field :email, :class => "form-login"
+        #login-box-name Password:
+        #login-box-field
+          = f.password_field :password, :class => "form-login"
+        #login-box-name Confirm Password:
+        #login-box-field
+          = f.password_field :password_confirmation, :class => "form-login"
+          %br
+          %div{:style => "margin-left: 175px;margin-top: 10px;"}
+            = link_to "Sign In", "#", :class => "signup-link"
+        %br/
+        %br/
+        = f.submit "SIGNUP"
+              
+:javascript
+  $(".signup-link").click(function() {
+    $(".login-page").toggle();
+    //$(".signup-page").css("display","block");
+  })

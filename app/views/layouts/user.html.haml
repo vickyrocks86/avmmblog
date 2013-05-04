@@ -1,0 +1,16 @@
+%html
+  %head
+    %meta{:charset => "utf-8"}/
+    %meta{:content => "width=device-width, initial-scale=1.0", :name => "viewport"}/
+    %title AVMMBlog
+    /%link{:href => "http://fonts.googleapis.com/css?family=Arvo", :rel => "stylesheet", :type => "text/css"}/
+    = stylesheet_link_tag    "style","login-box"
+    = javascript_include_tag "jquery1","galleria","flexslider"
+  %body#page1
+    = render :partial => "layouts/header"
+    = yield 
+    %footer
+      %p
+        Copyright &copy;
+        
+          

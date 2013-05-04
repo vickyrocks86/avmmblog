@@ -1,0 +1,82 @@
+.container
+  #main_content
+    #short_nav
+      %ul
+        %li
+        %li
+    #left_content
+      #my_account
+        = render "/store/facebook_like_box.html"  
+    #right_content
+      / form login start
+      #form_login_joinin{:style => "width:530px;height:345;"}
+        %table#table_1
+          %tr
+            %th{:width => "209"} Login
+          %tr
+            %td.gray_text Login with your Enah account
+           
+          = form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f|
+            %tr 
+              %td.email_password_text{:style => "padding-top:20px;"}                  
+                %label Your Email Address 
+            %tr
+              %td
+                = f.email_field :email, :size => "25"
+            %tr.email_password_text{:style => "padding-top:20px;"}
+              %td
+                %label Your Password
+            %tr
+              %td
+                = f.password_field :password, :size => "25"
+            %tr
+              %td.gray_text     
+                = render "links"
+            
+            %tr
+              %td{:height => "58"}
+                = f.submit "Sign in",:id => "signin"
+                
+        %table#table_2{:style => "position:relative;bottom:235px;left:200px;"}
+          %tr
+            %th{:colspan => "2"} Joinin !
+          %tr
+            %td.gray_text{:colspan => "2"} Create Your Enah account
+          
+            = form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f|
+              %tr
+                %td.email_password_text{:style => "padding-top:20px;", :width => "97"} 
+                  Title* 
+                %td{:style => "padding-top:20px;", :width => "150"}
+                  = f.select :title, options_for_select([["Mr"], "Mr", "Mrs", "Miss"])
+              %tr
+                %td.email_password_text{:style => "padding-top:7px;"} 
+                  First Name*
+                %td{:style => "padding-top:7px;"}
+                  = f.text_field :first_name, :size => "25"
+              %tr
+                %td.email_password_text{:style => "padding-top:7px;"} 
+                  Last Name*
+                %td{:style => "padding-top:7px;"}
+                  = f.text_field :last_name, :size => "25"
+              %tr
+                %td.email_password_text{:style => "padding-top:7px;"}
+                  Email Address*
+                %td{:style => "padding-top:7px;"}
+                  = f.email_field :email, :size => "25"
+              %tr
+                %td.email_password_text{:style => "padding-top:7px;"} 
+                  Password*
+                %td{:style => "padding-top:10px;"}
+                  = f.password_field :password, :size => "25"
+              %tr
+                %td.email_password_text{:style => "padding-top:7px;"} 
+                  Password Confirmation*
+                %td{:style => "padding-top:10px;"}
+                  = f.password_field :password_confirmation, :size => "25", :style => "margin-left:8px;"
+              %tr
+                %td{:colspan => "3"}
+                  = f.submit "Sign up", :id => "joinin_button"
+              
+          
+          

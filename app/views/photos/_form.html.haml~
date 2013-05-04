@@ -1,0 +1,3 @@
+= form @photo do |f|
+  = f.file_field :user_photo
+  = f.submit
